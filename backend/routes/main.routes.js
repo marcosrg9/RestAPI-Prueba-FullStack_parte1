@@ -7,6 +7,8 @@ const { API } = require('./api.routes');
 Routes.use('/api', API);
 
 // Carpeta de archivos estáticos.
+
 Routes.use('/', static(`${process.cwd()}/backend/public/`));
+Routes.get('*', (req, res) => res.sendFile(`${process.cwd()}/backend/public/index.html`));
 
 module.exports = { Routes };
